@@ -1,6 +1,7 @@
 package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.Product;
+import com.ecommerce.orderapp.payload.ProductPayload;
 import com.ecommerce.orderapp.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,16 @@ public class ProductServiceImpl implements ProductService {
     public Product save(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public Product addProduct(ProductPayload productPayload) {
+        Product product = new Product(null, productPayload.getName(), productPayload.getPrice(), productPayload.getStock());
+        return productRepository.save(product);
+    }
+    /*
+    @Override
+    public void deleteItemById(Long id) {
+        productRepository.deleteById(id);
+    }*/
 
 }

@@ -1,8 +1,9 @@
+com\ecommerce\orderapp\payload\ProductPayload.class
+com\ecommerce\orderapp\domain\Product.class
+com\ecommerce\orderapp\service\ProductServiceImpl.class
 com\ecommerce\orderapp\config\WebConfig.class
 com\ecommerce\orderapp\OrderWebApplication.class
 com\ecommerce\orderapp\repository\ProductRepository.class
 com\ecommerce\orderapp\service\ProductService.class
 com\ecommerce\orderapp\controller\HomeController.class
 com\ecommerce\orderapp\controller\ProductController.class
-com\ecommerce\orderapp\domain\Product.class
-com\ecommerce\orderapp\service\ProductServiceImpl.class

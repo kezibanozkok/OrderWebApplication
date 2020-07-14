@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-    <ul class="nav nav-pills">
+    <ul class="nav nav-tabs">
         <li role="presentation"><a href="/">Home</a></li>
         <li role="presentation" class="active"><a href="/products">Products</a></li>
         <li role="presentation"><a href="/customers">Customers</a></li>
@@ -45,21 +45,27 @@
                 <td th:text="${prod.name}">Table cell</td>
                 <td th:text="${prod.price}">Table cell</td>
                 <td th:text="${prod.stock}">Table cell</td>
-                <td><a th:href="@{'/products/' + ${prod.id}}" target="_blank" class="btn btn-success"><span
-                        class="glyphicon glyphicon-search" aria-hidden="true"></span> details</a></td>
+                <td><a th:href="@{'/products/' + ${prod.id}}" target="_blank" class="btn btn-danger"><span
+                        class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete</a></td>
             </tr>
 
             </tbody>
         </table>
 
-        <nav aria-label="breadcrumb">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/products/add" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
+            </div>
+        </div>
+
+        <!--nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Products</li>
             </ol>
-        </nav>
+        </nav-->
     </div>
-
 
 </div>
 
