@@ -23,14 +23,30 @@ public class CustomerController {
     }
 
     @GetMapping("/add")
-    public String addCustomer() {
+    public String addCustomerPage() {
         return "addCustomer";
     }
 
     @PostMapping("/add")
-    public String save(@ModelAttribute CustomerPayload customerPayload) {
-        customerService.addCustomer(customerPayload);
+    public String addCustomer(@ModelAttribute CustomerPayload customerPayload) {
+        customerService.add(customerPayload);
         return "redirect:/customers";
     }
 
+    @GetMapping("/update/{id}")
+    public String updateCustomerPage(@PathVariable Long id) {
+        return "updateCustomer";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateCustomer(@ModelAttribute CustomerPayload customerPayload, @PathVariable Long id) {
+        customerService.update(customerPayload, id);
+        return "redirect:/customers";
+    }
+
+    @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE, RequestMethod.POST})
+    public String deleteCustomer(@PathVariable Long id) {
+        customerService.deleteById(id);
+        return "redirect:/customers";
+    }
 }

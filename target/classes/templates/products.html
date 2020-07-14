@@ -45,8 +45,16 @@
                 <td th:text="${prod.name}">Table cell</td>
                 <td th:text="${prod.price}">Table cell</td>
                 <td th:text="${prod.stock}">Table cell</td>
-                <td><a th:href="@{'/products/' + ${prod.id}}" target="_blank" class="btn btn-danger"><span
-                        class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete</a></td>
+                <td><a th:href="@{'/products/update/' + ${prod.id}}" target="_blank" class="btn btn-info">Update</a>
+                </td>
+                <td>
+                    <form th:action="@{/products/} + ${prod.id}" th:method="delete">
+                        <button class="btn btn-danger" type="submit">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete
+                        </button>
+                    </form>
+                </td>
+
             </tr>
 
             </tbody>

@@ -26,6 +26,4 @@ public class Customer {
 
     private String address;
 
-    @OneToMany
-    private Set<Product> products;
 }

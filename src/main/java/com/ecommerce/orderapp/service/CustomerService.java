@@ -12,6 +12,9 @@ public interface CustomerService {
 
     Customer save(Customer customer);
 
-    Customer addCustomer(CustomerPayload customerPayload);
+    void add(CustomerPayload customerPayload);
 
+    void update(CustomerPayload customerPayload, Long id);
+
+    void deleteById(Long id);
 }

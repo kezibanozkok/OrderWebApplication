@@ -2,7 +2,6 @@ package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.Customer;
 import com.ecommerce.orderapp.payload.CustomerPayload;
-import com.ecommerce.orderapp.payload.ProductPayload;
 import com.ecommerce.orderapp.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +34,23 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer addCustomer(CustomerPayload customerPayload) {
-        Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress(), customerPayload.getProducts());
-        return customerRepository.save(customer);
+    public void add(CustomerPayload customerPayload) {
+        Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress());
+        customerRepository.save(customer);
     }
 
+    @Override
+    public void update(CustomerPayload customerPayload, Long id) {
+        Customer customer = customerRepository.getOne(id);
+
+        customer.setFirstName(customerPayload.getFirstName());
+        customer.setLastName(customerPayload.getLastName());
+        customer.setAddress(customerPayload.getAddress());
+        customerRepository.save(customer);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        customerRepository.deleteById(id);
+    }
 }

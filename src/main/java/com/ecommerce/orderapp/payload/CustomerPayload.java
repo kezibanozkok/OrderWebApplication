@@ -18,7 +18,4 @@ public class CustomerPayload {
     private String lastName;
 
     private String address;
-
-    @OneToMany
-    private Set<Product> products;
 }

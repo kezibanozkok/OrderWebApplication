@@ -12,8 +12,10 @@ public interface ProductService {
 
     Product save(Product product);
 
-    Product addProduct(ProductPayload productPayload);
+    void addProduct(ProductPayload productPayload);
 
-    //void deleteItemById(Long id);
+    void update(ProductPayload productPayload, Long id);
+
+    void deleteItemById(Long id);
 
 }
