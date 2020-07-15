@@ -46,8 +46,8 @@
                 <td th:text="${customer.firstName}">Table cell</td>
                 <td th:text="${customer.lastName}">Table cell</td>
                 <td th:text="${customer.address}">Table cell</td>
-                <td><a th:href="@{'/customers/update/' + ${customer.id}}" target="_blank"
-                       class="btn btn-info">Update</a></td>
+                <td><a th:href="@{'/customers/update/' + ${customer.id}}" target="_blank" class="btn btn-success">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</a></td>
                 <td>
                     <form th:action="@{/customers/} + ${customer.id}" th:method="delete">
                         <button class="btn btn-danger" type="submit">
