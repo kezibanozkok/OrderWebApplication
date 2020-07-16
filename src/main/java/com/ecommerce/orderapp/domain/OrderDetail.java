@@ -21,8 +21,8 @@ public class OrderDetail {
     @Id
     @GeneratedValue
     private Long id;
-    private Long productId;
     private Long orderId;
+    private Long productId;
     private int quantity;
     private double unitPrice;
 }

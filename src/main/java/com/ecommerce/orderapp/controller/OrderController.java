@@ -51,9 +51,9 @@ public class OrderController {
         return "redirect:/orders";
     }
 
-    @GetMapping("/detail/{id}")
-    public String getDetailPage(Model model, @PathVariable Long id) {
-        model.addAttribute("order", orderService.getOne(id));
+    @GetMapping("/detail/{orderId}")
+    public String getDetailPage(Model model, @PathVariable Long orderId) {
+        model.addAttribute("orderDetailList", orderService.getDetail(orderId));
         return "orderDetail";
     }
 

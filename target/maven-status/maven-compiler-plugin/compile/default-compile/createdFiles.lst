@@ -5,11 +5,14 @@ com\ecommerce\orderapp\repository\CustomerRepository.class
 com\ecommerce\orderapp\service\ProductServiceImpl.class
 com\ecommerce\orderapp\config\WebConfig.class
 com\ecommerce\orderapp\OrderWebApplication.class
+com\ecommerce\orderapp\domain\Report.class
 com\ecommerce\orderapp\controller\HomeController.class
 com\ecommerce\orderapp\controller\ProductController.class
+com\ecommerce\orderapp\controller\ReportController.class
 com\ecommerce\orderapp\repository\OrderRepository.class
 com\ecommerce\orderapp\service\CustomerService.class
 com\ecommerce\orderapp\domain\Orders.class
+com\ecommerce\orderapp\repository\OrderDetailRepository.class
 com\ecommerce\orderapp\controller\CustomerController.class
 com\ecommerce\orderapp\service\CustomerServiceImpl.class
 com\ecommerce\orderapp\controller\OrderController.class

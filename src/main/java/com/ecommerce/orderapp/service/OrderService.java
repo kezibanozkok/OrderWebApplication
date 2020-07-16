@@ -1,5 +1,6 @@
 package com.ecommerce.orderapp.service;
 
+import com.ecommerce.orderapp.domain.OrderDetail;
 import com.ecommerce.orderapp.domain.Orders;
 import com.ecommerce.orderapp.payload.OrderPayload;
 
@@ -16,4 +17,6 @@ public interface OrderService {
     void updateOrder(OrderPayload orderPayload, Long id);
 
     void deleteItemById(Long id);
+
+    List<OrderDetail> getDetail(Long orderId);
 }

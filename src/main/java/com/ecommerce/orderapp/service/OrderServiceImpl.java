@@ -1,7 +1,9 @@
 package com.ecommerce.orderapp.service;
 
+import com.ecommerce.orderapp.domain.OrderDetail;
 import com.ecommerce.orderapp.domain.Orders;
 import com.ecommerce.orderapp.payload.OrderPayload;
+import com.ecommerce.orderapp.repository.OrderDetailRepository;
 import com.ecommerce.orderapp.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +15,12 @@ import java.util.List;
 @Service
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
+    private final OrderDetailRepository orderDetailRepository;
 
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderDetailRepository orderDetailRepository) {
         this.orderRepository = orderRepository;
+        this.orderDetailRepository = orderDetailRepository;
     }
 
     @Override
@@ -48,4 +52,14 @@ public class OrderServiceImpl implements OrderService {
     public void deleteItemById(Long id) {
         orderRepository.deleteById(id);
     }
+
+    @Override
+    public List<OrderDetail> getDetail(Long orderId) {
+
+
+        List<OrderDetail> orderDetailList = orderDetailRepository.findOrderDetailByOrderId(orderId);
+
+        return orderDetailList;
+    }
+
 }
