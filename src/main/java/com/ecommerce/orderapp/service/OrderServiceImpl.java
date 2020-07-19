@@ -1,7 +1,7 @@
 package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.OrderDetail;
-import com.ecommerce.orderapp.domain.Orders;
+import com.ecommerce.orderapp.domain.Order;
 import com.ecommerce.orderapp.payload.OrderPayload;
 import com.ecommerce.orderapp.repository.OrderDetailRepository;
 import com.ecommerce.orderapp.repository.OrderRepository;
@@ -24,12 +24,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Orders getOne(Long id) {
+    public Order getOne(Long id) {
         return orderRepository.getOne(id);
     }
 
     @Override
-    public List<Orders> getOrders() {
+    public List<Order> getOrders() {
         return orderRepository.findAll();
     }
 
@@ -37,13 +37,13 @@ public class OrderServiceImpl implements OrderService {
     public void createOrder(OrderPayload orderPayload) {
         Date date = new Date();
 
-        Orders order = new Orders(null, orderPayload.getCustomerId(), date, orderPayload.getStatus(), orderPayload.getDescription());
+        Order order = new Order(null, orderPayload.getCustomerId(), date, orderPayload.getStatus(), orderPayload.getDescription());
         orderRepository.save(order);
     }
 
     @Override
     public void updateOrder(OrderPayload orderPayload, Long id) {
-        Orders order = orderRepository.getOne(id);
+        Order order = orderRepository.getOne(id);
         order.setStatus(orderPayload.getStatus());
         orderRepository.save(order);
     }
@@ -55,11 +55,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDetail> getDetail(Long orderId) {
-
-
-        List<OrderDetail> orderDetailList = orderDetailRepository.findOrderDetailByOrderId(orderId);
-
-        return orderDetailList;
+        return orderDetailRepository.findOrderDetailByOrderId(orderId);
     }
 
 }

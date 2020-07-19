@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,13 +20,25 @@
 </head>
 <body>
 <div class="container">
+    <ul class="nav navbar-right">
+        <form th:action="@{/logout}" method="post">
+            <!--input type="submit" value="Logout" /-->
+            <button class="btn btn-default" type="submit" value="Logout">Logout</button>
+        </form>
+    </ul>
+
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="/">Home</a></li>
         <li role="presentation"><a href="/products">Products</a></li>
         <li role="presentation"><a href="/customers">Customers</a></li>
         <li role="presentation"><a href="/orders">Orders</a></li>
         <li role="presentation"><a href="/reports">Reports</a></li>
+        <li role="presentation"><a href="/user">User</a></li>
     </ul>
+
+
+
+
 
 
 </div>

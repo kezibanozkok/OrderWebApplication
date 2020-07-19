@@ -20,7 +20,6 @@ public class ProductController {
     public String getProductPage(Model model) {
         //Product product = new Product((long) 1, "iphoneX", 9000.0, 5);
         //productService.save(product);
-
         model.addAttribute("products", productService.getProducts());
         return "products";
     }

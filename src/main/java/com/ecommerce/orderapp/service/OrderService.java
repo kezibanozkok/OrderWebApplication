@@ -1,16 +1,16 @@
 package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.OrderDetail;
-import com.ecommerce.orderapp.domain.Orders;
+import com.ecommerce.orderapp.domain.Order;
 import com.ecommerce.orderapp.payload.OrderPayload;
 
 import java.util.List;
 
 public interface OrderService {
 
-    Orders getOne(Long id);
+    Order getOne(Long id);
 
-    List<Orders> getOrders();
+    List<Order> getOrders();
 
     void createOrder(OrderPayload orderPayload);
 
