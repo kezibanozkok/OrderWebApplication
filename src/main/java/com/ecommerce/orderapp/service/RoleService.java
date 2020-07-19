@@ -7,9 +7,11 @@ import java.util.Optional;
 
 public interface RoleService {
 
-    Role save(Role role);
+    //Role save(Role role);
 
-    Optional<Role> findByName(String name);
+    //Optional<Role> findByName(String name);
 
-    List<Role> getRoles();
+    List<Role> findAll();
+
+    Optional<Role> findOne(Long id);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,8 @@
     </ul>
 
     <div>
-        <form class="form-horizontal" method="post">
+        <h1></h1>
+        <form class="form-horizontal" method="post" style="max-width: 600px; margin: 0 auto">
             <div class="form-group">
                 <label for="firstName" class="col-sm-2 control-label">First Name</label>
                 <div class="col-sm-10">
@@ -45,9 +46,39 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="username" name="username"
+                           placeholder="Enter username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="password" name="password"
+                           placeholder="Enter password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="role" class="col-sm-2 control-label">Role</label>
+                <select class="form-control" id="role" name="role" style="max-width: 500px; margin: 0 auto">
+                    <option th:each="role: ${roles}"
+                            th:text="${role.name}"
+                            th:value="${role.id}">
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="address" class="col-sm-2 control-label">Address</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="address" name="address" placeholder="Enter address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="isActive" class="col-sm-2 control-label">isActive</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="isActive" name="isActive"
+                           placeholder="Enter isActive">
                 </div>
             </div>
             <div class="form-group">

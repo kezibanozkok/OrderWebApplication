@@ -2,7 +2,6 @@ package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.Role;
 import com.ecommerce.orderapp.domain.User;
-import com.ecommerce.orderapp.payload.RolePayload;
 import com.ecommerce.orderapp.payload.UserPayload;
 import com.ecommerce.orderapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,12 +57,16 @@ public class UserDetailsServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public void addUser(UserPayload userPayload) {
-        //Role role =new Role(Long.parseLong("55"), "USER");
-        //List<Role> roles = new ArrayList<>();
-        //roles.add(role);
-        //userPayload.setRoles(roles);
+        Optional<Role> optionalRole = roleService.findOne(userPayload.getRole());
+        if (optionalRole.isPresent()) {
+            Role role = optionalRole.get();
+            User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role, userPayload.getIsActive());
+            userRepository.save(user);
+        }
+    }
 
-        User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), userPayload.getRoles(), userPayload.getIsActive());
-        userRepository.save(user);
+    @Override
+    public Optional<User> findOne(Long id) {
+        return userRepository.findById(id);
     }
 }

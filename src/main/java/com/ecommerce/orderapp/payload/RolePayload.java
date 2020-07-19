@@ -1,5 +1,6 @@
 package com.ecommerce.orderapp.payload;
 
+import com.ecommerce.orderapp.domain.Role;
 import com.ecommerce.orderapp.domain.User;
 import lombok.*;
 
@@ -17,4 +18,5 @@ public class RolePayload {
 
     private List<User> users;
 
+    private List<Role> roles;
 }

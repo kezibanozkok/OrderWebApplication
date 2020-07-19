@@ -16,7 +16,6 @@ public class OrderPayload {
 
     private Long customerId;
     private Long productId;
-    private Long orderId;
     private String status;
     private String description;
     private int quantity;

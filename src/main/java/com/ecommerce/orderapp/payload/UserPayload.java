@@ -19,7 +19,7 @@ public class UserPayload {
 
     private String password;
 
-    private List<Role> roles;
+    private Long role;
 
     private int isActive;
 }

@@ -2,6 +2,7 @@ package com.ecommerce.orderapp.service;
 
 import com.ecommerce.orderapp.domain.Customer;
 import com.ecommerce.orderapp.payload.CustomerPayload;
+import com.ecommerce.orderapp.payload.UserPayload;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface CustomerService {
 
     Customer save(Customer customer);
 
-    void add(CustomerPayload customerPayload);
+    void add(CustomerPayload customerPayload, UserPayload userPayload);
 
     void update(CustomerPayload customerPayload, Long id);
 

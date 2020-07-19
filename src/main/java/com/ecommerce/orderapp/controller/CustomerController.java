@@ -1,19 +1,29 @@
 package com.ecommerce.orderapp.controller;
 
+import com.ecommerce.orderapp.domain.Role;
 import com.ecommerce.orderapp.payload.CustomerPayload;
+import com.ecommerce.orderapp.payload.UserPayload;
 import com.ecommerce.orderapp.service.CustomerService;
+import com.ecommerce.orderapp.service.RoleService;
+import com.ecommerce.orderapp.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
 
     private final CustomerService customerService;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService, UserService userService, RoleService roleService) {
         this.customerService = customerService;
+        this.userService = userService;
+        this.roleService = roleService;
     }
 
     @GetMapping
@@ -23,13 +33,16 @@ public class CustomerController {
     }
 
     @GetMapping("/add")
-    public String addCustomerPage() {
+    public String addCustomerPage(Model model) {
+        List<Role> roles = roleService.findAll();
+        model.addAttribute("roles", roles);
         return "addCustomer";
     }
 
     @PostMapping("/add")
-    public String addCustomer(@ModelAttribute CustomerPayload customerPayload) {
-        customerService.add(customerPayload);
+    public String addCustomer(@ModelAttribute CustomerPayload customerPayload, @ModelAttribute UserPayload userPayload) {
+        customerService.add(customerPayload, userPayload);
+        //userService.addUser(userPayload);
         return "redirect:/customers";
     }
 

@@ -28,26 +28,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
+    /*
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/home", "/products", "/customers", "/orders").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/products/**", "/customers/**", "/reports/**", "/user").hasRole("ADMIN")
+                .antMatchers("/products/**", "/customers/**", "/reports/**", "/user/**").hasRole("ADMIN")
                 .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")
-                .usernameParameter("username")
-                .passwordParameter("password")
                 .permitAll()
                 .and()
                 .logout()
                 .logoutUrl("/logout")
                 .permitAll();
+    }*/
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeRequests(authorize -> authorize
+                        .antMatchers("/", "/home", "/products", "/customers", "/orders").hasAnyRole(new String[]{"ADMIN", "USER"})
+                        .antMatchers("/products/**", "/customers/**", "/reports/**", "/user/**").hasRole("ADMIN")
+                        .antMatchers("/login").permitAll()
+                )
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login").permitAll()
+                        .failureUrl("/login?error").permitAll()
+                )
+                .logout()
+                .logoutUrl("/logout")
+                .permitAll();
+
     }
 
     @Override

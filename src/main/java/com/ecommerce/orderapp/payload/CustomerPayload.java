@@ -20,5 +20,7 @@ public class CustomerPayload {
 
     private String address;
 
-    private User user;
+    private String username;
+
+    private String password;
 }
