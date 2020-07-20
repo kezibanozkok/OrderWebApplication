@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,24 +26,29 @@
         <li role="presentation"><a href="/customers">Customers</a></li>
         <li role="presentation" class="active"><a href="/orders">Orders</a></li>
         <li role="presentation"><a href="/reports">Reports</a></li>
+        <li role="presentation"><a href="/user/add">Define a User</a></li>
     </ul>
 
     <div>
         <h1></h1>
         <form class="form-horizontal" method="post" style="max-width: 600px; margin: 0 auto">
             <div class="form-group">
-                <label for="customerId" class="col-sm-2 control-label">Customer ID</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" id="customerId" name="customerId"
-                           placeholder="Enter customer id">
-                </div>
+                <label for="customer" class="col-sm-2 control-label">CustomerID</label>
+                <select class="form-control" id="customer" name="customer" style="max-width: 500px; margin: 0 auto">
+                    <option th:each="customer: ${customers}"
+                            th:text="${customer.id}"
+                            th:value="${customer.id}">
+                    </option>
+                </select>
             </div>
             <div class="form-group">
-                <label for="productId" class="col-sm-2 control-label">Product ID</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" id="productId" name="productId"
-                           placeholder="Enter product id">
-                </div>
+                <label for="product" class="col-sm-2 control-label">Product ID</label>
+                <select class="form-control" id="product" name="product" style="max-width: 500px; margin: 0 auto">
+                    <option th:each="product: ${products}"
+                            th:text="${product.id}"
+                            th:value="${product.id}">
+                    </option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="quantity" class="col-sm-2 control-label">Quantity</label>
@@ -52,7 +57,7 @@
                            placeholder="Enter quantity">
                 </div>
             </div>
-            <div class="form-group">
+            <!--div class="form-group">
                 <label for="status" class="col-sm-2 control-label">Status</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="status" name="status"
@@ -65,7 +70,7 @@
                     <input type="text" class="form-control" id="description" name="description"
                            placeholder="Enter description">
                 </div>
-            </div>
+            </div-->
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">Submit</button>

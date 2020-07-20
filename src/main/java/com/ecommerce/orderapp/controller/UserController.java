@@ -23,11 +23,6 @@ public class UserController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/user")
-    private String getPage() {
-        return "user";
-    }
-
     @GetMapping("/user/add")
     public String addPage(Model model) {
         List<Role> roles = roleService.findAll();
@@ -38,6 +33,6 @@ public class UserController {
     @PostMapping("/user/add")
     public String save(@ModelAttribute UserPayload userPayload) {
         userDetailsService.addUser(userPayload);
-        return "redirect:/user";
+        return "redirect:/home";
     }
 }

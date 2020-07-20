@@ -32,6 +32,7 @@
         <li role="presentation"><a href="/customers">Customers</a></li>
         <li role="presentation" class="active"><a href="/orders">Orders</a></li>
         <li role="presentation"><a href="/reports">Reports</a></li>
+        <li role="presentation"><a href="/user/add">Define a User</a></li>
     </ul>
 
     <div class="table-responsive">
@@ -39,7 +40,7 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Customer ID</th>
+                <!--th>Customer ID</th-->
                 <th>Order Date</th>
                 <th>Status</th>
                 <th>Description</th>
@@ -49,7 +50,7 @@
             <tbody>
             <tr th:each="order: ${orders}">
                 <td th:text="${order.id}">Table cell</td>
-                <td th:text="${order.customerId}">Table cell</td>
+                <!--td th:text="${order.customerId}">Table cell</td-->
                 <td th:text="${order.orderDate}">Table cell</td>
                 <td th:text="${order.status}">Table cell</td>
                 <td th:text="${order.description}">Table cell</td>

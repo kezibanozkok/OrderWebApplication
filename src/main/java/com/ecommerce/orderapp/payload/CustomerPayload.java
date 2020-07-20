@@ -1,11 +1,6 @@
 package com.ecommerce.orderapp.payload;
 
-import com.ecommerce.orderapp.domain.Product;
-import com.ecommerce.orderapp.domain.User;
 import lombok.*;
-
-import javax.persistence.OneToMany;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -14,13 +9,11 @@ import java.util.Set;
 @NoArgsConstructor
 @ToString
 public class CustomerPayload {
+
     private String firstName;
-
     private String lastName;
-
     private String address;
-
     private String username;
-
     private String password;
+    private long id;
 }

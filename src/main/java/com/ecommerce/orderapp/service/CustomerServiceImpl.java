@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
         Optional<Role> optionalRole = roleService.findOne(userPayload.getRole());
         if (optionalRole.isPresent()) {
             Role role = optionalRole.get();
-            User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role, userPayload.getIsActive());
+            User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role);
             userRepository.save(user);
             Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress(), user);
             customerRepository.save(customer);
@@ -59,7 +59,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void update(CustomerPayload customerPayload, Long id) {
         Customer customer = customerRepository.getOne(id);
-
         customer.setFirstName(customerPayload.getFirstName());
         customer.setLastName(customerPayload.getLastName());
         customer.setAddress(customerPayload.getAddress());

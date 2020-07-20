@@ -60,7 +60,7 @@ public class UserDetailsServiceImpl implements UserService, UserDetailsService {
         Optional<Role> optionalRole = roleService.findOne(userPayload.getRole());
         if (optionalRole.isPresent()) {
             Role role = optionalRole.get();
-            User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role, userPayload.getIsActive());
+            User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role);
             userRepository.save(user);
         }
     }

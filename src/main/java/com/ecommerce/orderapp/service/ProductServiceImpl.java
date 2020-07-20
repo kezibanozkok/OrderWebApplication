@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void addProduct(ProductPayload productPayload) {
-        Product product = new Product(null, productPayload.getName(), productPayload.getPrice(), productPayload.getStock());
+        Product product = new Product(null, productPayload.getName(), productPayload.getPrice(), productPayload.getStock(), null);
         productRepository.save(product);
     }
 

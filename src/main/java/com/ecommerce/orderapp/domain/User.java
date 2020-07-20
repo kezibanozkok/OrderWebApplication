@@ -32,15 +32,14 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Customer customer;
 
-    private int isActive;
+    //private int isActive;
 
-    public User(Long id, String username, String password, Role role, int isActive) {
+    public User(Long id, String username, String password, Role role) {
         this.id = id;
         this.username = username;
         this.password = password;
         List<Role> roles = new ArrayList<>();
         roles.add(role);
         this.roles = roles;
-        this.isActive = isActive;
     }
 }
