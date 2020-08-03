@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,14 +20,19 @@
 </head>
 <body>
 <div class="container">
-    <p th:if="${loginError}" class="has-error">Wrong username or password!!!</p>
     <form th:action="@{/login}" method="post" style="max-width: 400px; margin: 0 auto">
-        <h1>Login page</h1>
-        <label for="username">username</label>:
+        <h1>Please login</h1>
+        <div th:if="${param.error}" class="alert alert-danger">Invalid username or password</div>
+        <div th:if="${param.logout}" class="alert alert-success">You have been logged out</div>
+        <label for="username">Username</label>:
         <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>
-        <label for="password">password</label>:
+        <label for="password">Password</label>:
         <input type="password" id="password" name="password"/> <br/>
         <input type="submit" value="Login"/>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/registration">Sign up</a></li>
+        </ul>
     </form>
 
     <!--p><a href="/home" th:href="@{/home}">Back to home page</a></p-->

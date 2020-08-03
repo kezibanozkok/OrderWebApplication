@@ -57,6 +57,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public void register(CustomerPayload customerPayload, UserPayload userPayload) {
+
+        Role role = new Role();
+        role.setId(Long.parseLong("55"));
+        role.setName("USER");
+        User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role);
+        userRepository.save(user);
+        Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress(), user);
+        customerRepository.save(customer);
+    }
+
+    @Override
     public void update(CustomerPayload customerPayload, Long id) {
         Customer customer = customerRepository.getOne(id);
         customer.setFirstName(customerPayload.getFirstName());

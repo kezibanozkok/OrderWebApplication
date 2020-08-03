@@ -15,6 +15,8 @@ public interface CustomerService {
 
     void add(CustomerPayload customerPayload, UserPayload userPayload);
 
+    void register(CustomerPayload customerPayload, UserPayload userPayload);
+
     void update(CustomerPayload customerPayload, Long id);
 
     void deleteById(Long id);

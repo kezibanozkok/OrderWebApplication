@@ -5,7 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table
@@ -18,16 +21,9 @@ public class Product {
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-
     private double price;
-
     private int stock;
-
-    @ManyToOne
-    @JoinColumn(name = "order_detail_id")
-    private OrderDetail orderDetail;
 
     public Product(String name, double price, int stock) {
         this.name = name;

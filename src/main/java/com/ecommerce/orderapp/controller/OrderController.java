@@ -1,11 +1,11 @@
 package com.ecommerce.orderapp.controller;
 
-import com.ecommerce.orderapp.payload.CustomerPayload;
 import com.ecommerce.orderapp.payload.OrderPayload;
 import com.ecommerce.orderapp.payload.ProductPayload;
 import com.ecommerce.orderapp.service.CustomerService;
 import com.ecommerce.orderapp.service.OrderService;
 import com.ecommerce.orderapp.service.ProductService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,14 +32,15 @@ public class OrderController {
 
     @GetMapping("/create")
     public String getCreatePage(Model model) {
+
         model.addAttribute("customers", customerService.getCustomers());
         model.addAttribute("products", productService.getProducts());
         return "createOrder";
     }
 
     @PostMapping("/create")
-    public String createOrder(@ModelAttribute OrderPayload orderPayload, @ModelAttribute CustomerPayload customerPayload, @ModelAttribute ProductPayload productPayload) {
-        orderService.createOrder(orderPayload, customerPayload, productPayload);
+    public String createOrder(Authentication authentication, @ModelAttribute OrderPayload orderPayload, @ModelAttribute ProductPayload productPayload) {
+        orderService.createOrder(authentication, orderPayload, productPayload);
         return "redirect:/orders";
     }
 
@@ -60,11 +61,9 @@ public class OrderController {
         return "redirect:/orders";
     }
 
-    /*
     @GetMapping("/detail/{orderId}")
     public String getDetailPage(Model model, @PathVariable Long orderId) {
         model.addAttribute("orderDetailList", orderService.getDetail(orderId));
         return "orderDetail";
     }
-    */
 }

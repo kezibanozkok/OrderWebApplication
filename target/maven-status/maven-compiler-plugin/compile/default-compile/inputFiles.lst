@@ -2,6 +2,8 @@ F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\domain\OrderDetail.j
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\repository\OrderDetailRepository.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\repository\UserRepository.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\payload\OrderPayload.java
+F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\service\OrderDetailService.java
+F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\service\OrderDetailServiceImpl.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\service\OrderServiceImpl.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\repository\RoleRepository.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\repository\ProductRepository.java

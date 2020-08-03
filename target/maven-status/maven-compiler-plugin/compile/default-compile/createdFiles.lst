@@ -11,6 +11,7 @@ com\ecommerce\orderapp\service\RoleServiceImpl.class
 com\ecommerce\orderapp\controller\HomeController.class
 com\ecommerce\orderapp\domain\Order.class
 com\ecommerce\orderapp\service\CustomerService.class
+com\ecommerce\orderapp\service\OrderDetailService.class
 com\ecommerce\orderapp\repository\RoleRepository.class
 com\ecommerce\orderapp\service\CustomerServiceImpl.class
 com\ecommerce\orderapp\domain\Product.class
@@ -34,5 +35,6 @@ com\ecommerce\orderapp\repository\OrderRepository.class
 com\ecommerce\orderapp\repository\OrderDetailRepository.class
 com\ecommerce\orderapp\controller\CustomerController.class
 com\ecommerce\orderapp\controller\OrderController.class
+com\ecommerce\orderapp\service\OrderDetailServiceImpl.class
 com\ecommerce\orderapp\repository\ProductRepository.class
 com\ecommerce\orderapp\service\UserDetailsServiceImpl.class

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -22,7 +21,11 @@ public class OrderDetail {
     private int quantity;
     private double unitPrice;
 
-    @OneToMany(mappedBy = "orderDetail")
-    private List<Product> product;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
 }

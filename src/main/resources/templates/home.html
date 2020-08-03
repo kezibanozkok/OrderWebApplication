@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +39,15 @@
         <li role="presentation"><a href="/reports">Reports</a></li>
         <li role="presentation"><a href="/user/add">Define a User</a></li>
     </ul>
-    <h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h2>
+
+    <div sec:authorize="isAuthenticated()">
+        <h1 th:text="'Welcome, ' + ${user} + '!'"></h1>
+    </div>
+
+    <!--div sec:authorize="isAuthenticated()">
+        Authenticated as <span sec:authentication="name"></span>
+    </div-->
+
 </div>
 
 

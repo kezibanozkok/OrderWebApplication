@@ -45,12 +45,11 @@
             <tbody>
             <tr th:each="orderDetail:${orderDetailList}">
                 <td th:text="${orderDetail.id}">Tablecell</td>
-                <td th:text="${orderDetail.orderId}">Tablecell</td>
-                <td th:text="${orderDetail.productId}">Tablecell</td>
+                <td th:text="${orderDetail.order}">Tablecell</td>
+                <td th:text="${orderDetail.product}">Tablecell</td>
                 <td th:text="${orderDetail.quantity}">Tablecell</td>
                 <td th:text="${orderDetail.unitPrice}">Tablecell</td>
             </tr>
-
             </tbody>
         </table>
 

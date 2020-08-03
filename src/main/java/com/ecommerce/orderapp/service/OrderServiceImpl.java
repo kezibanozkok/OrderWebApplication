@@ -1,35 +1,37 @@
 package com.ecommerce.orderapp.service;
 
-import com.ecommerce.orderapp.domain.Customer;
 import com.ecommerce.orderapp.domain.Order;
 import com.ecommerce.orderapp.domain.OrderDetail;
 import com.ecommerce.orderapp.domain.Product;
-import com.ecommerce.orderapp.payload.CustomerPayload;
+import com.ecommerce.orderapp.domain.User;
 import com.ecommerce.orderapp.payload.OrderPayload;
 import com.ecommerce.orderapp.payload.ProductPayload;
 import com.ecommerce.orderapp.repository.OrderDetailRepository;
 import com.ecommerce.orderapp.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderDetailRepository orderDetailRepository;
-    private final CustomerService customerService;
     private final ProductService productService;
+    private final UserService userService;
+
 
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository, OrderDetailRepository orderDetailRepository, CustomerService customerService, ProductService productService) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderDetailRepository orderDetailRepository, ProductService productService, UserService userService) {
         this.orderRepository = orderRepository;
         this.orderDetailRepository = orderDetailRepository;
-        this.customerService = customerService;
         this.productService = productService;
+        this.userService = userService;
     }
 
     @Override
@@ -43,17 +45,22 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void createOrder(OrderPayload orderPayload, CustomerPayload customerPayload, ProductPayload productPayload) {
+    @Transactional
+    public void createOrder(Authentication authentication, OrderPayload orderPayload, ProductPayload productPayload) {
         Date date = new Date();
+        int quantity = orderPayload.getQuantity();
+        String username = authentication.getName();
+        Optional<User> optionalUser = userService.findByUsername(username);
 
-        Customer customer = customerService.getOne(customerPayload.getId());
-        Product product = productService.getOne((productPayload.getProduct()));
-        List<Product> products = new ArrayList<>();
-        products.add(product);
+        if (optionalUser.isPresent()) {
+            Product product = productService.getOne((productPayload.getProduct()));
+            User user = optionalUser.get();
+            Order order = new Order(null, date, "Created", null, user.getCustomer());
+            orderRepository.save(order);
+            OrderDetail orderDetail = new OrderDetail(null, quantity, product.getPrice(), product, order);
+            orderDetailRepository.save(orderDetail);
+        }
 
-        Order order = new Order(null, date, null, null, customer);
-        OrderDetail orderDetail = new OrderDetail(null, orderPayload.getQuantity(), orderPayload.getUnitPrice(), products);
-        orderRepository.save(order);
     }
 
     /*
@@ -69,10 +76,7 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.deleteById(id);
     }
 
-    /*
-    @Override
-    public List<OrderDetail> getDetail(Long orderId) {
-        return orderDetailRepository.findOrderDetailByOrderId(orderId);
+    public OrderDetail getDetail(Long orderId) {
+        return orderDetailRepository.getOne(orderId);
     }
-    */
 }

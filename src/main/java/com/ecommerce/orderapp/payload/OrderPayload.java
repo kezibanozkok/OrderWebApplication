@@ -11,7 +11,7 @@ import lombok.*;
 public class OrderPayload {
 
     private Long customer;
-    private Long product;
+    private String product;
     private String status;
     private String description;
     private int quantity;
