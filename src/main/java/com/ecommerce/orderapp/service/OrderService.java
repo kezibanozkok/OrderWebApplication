@@ -20,5 +20,7 @@ public interface OrderService {
 
     void deleteItemById(Long id);
 
-    OrderDetail getDetail(Long orderId);
+    List<OrderDetail> getDetail(Long orderId);
+
+    List<Order> saveAll(List<Order> orders);
 }

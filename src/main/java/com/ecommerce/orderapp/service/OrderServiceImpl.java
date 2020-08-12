@@ -60,8 +60,9 @@ public class OrderServiceImpl implements OrderService {
             OrderDetail orderDetail = new OrderDetail(null, quantity, product.getPrice(), product, order);
             orderDetailRepository.save(orderDetail);
         }
-
     }
+
+
 
     /*
     @Override
@@ -76,7 +77,12 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.deleteById(id);
     }
 
-    public OrderDetail getDetail(Long orderId) {
-        return orderDetailRepository.getOne(orderId);
+    public List<OrderDetail> getDetail(Long orderId) {
+        return orderDetailRepository.findOrderDetailByOrder_Id(orderId);
+    }
+
+    @Override
+    public List<Order> saveAll(List<Order> orders) {
+        return orderRepository.saveAll(orders);
     }
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -19,7 +20,7 @@ public class OrderDetail {
     @GeneratedValue
     private Long id;
     private int quantity;
-    private double unitPrice;
+    private BigDecimal unitPrice;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -2,6 +2,8 @@ package com.ecommerce.orderapp.payload;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @ToString
@@ -10,7 +12,7 @@ import lombok.*;
 @EqualsAndHashCode
 public class ProductPayload {
     private String name;
-    private double price;
+    private BigDecimal price;
     private int stock;
     private Long product;
 }

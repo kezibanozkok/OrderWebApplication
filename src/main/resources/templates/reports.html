@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,9 +22,11 @@
 <div class="container">
     <ul class="nav navbar-right">
         <form th:action="@{/logout}" method="post">
-            <!--input type="submit" value="Logout" /-->
             <button class="btn btn-default" type="submit" value="Logout">Logout</button>
         </form>
+    </ul>
+    <ul class="nav navbar-right" sec:authorize="isAuthenticated()">
+        <li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li>
     </ul>
     <ul class="nav nav-tabs">
         <li role="presentation"><a href="/">Home</a></li>
