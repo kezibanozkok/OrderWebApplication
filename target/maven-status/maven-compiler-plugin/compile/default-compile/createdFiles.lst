@@ -1,5 +1,6 @@
 com\ecommerce\orderapp\controller\UserController.class
 com\ecommerce\orderapp\payload\ProductPayload.class
+com\ecommerce\orderapp\service\ShoppingCartService.class
 com\ecommerce\orderapp\repository\CustomerRepository.class
 com\ecommerce\orderapp\service\ProductServiceImpl.class
 com\ecommerce\orderapp\domain\Role.class
@@ -31,10 +32,13 @@ com\ecommerce\orderapp\OrderWebApplication.class
 com\ecommerce\orderapp\service\UserService.class
 com\ecommerce\orderapp\controller\ProductController.class
 com\ecommerce\orderapp\controller\ReportController.class
+com\ecommerce\orderapp\controller\ShoppingCartController.class
 com\ecommerce\orderapp\repository\OrderRepository.class
 com\ecommerce\orderapp\repository\OrderDetailRepository.class
 com\ecommerce\orderapp\controller\CustomerController.class
 com\ecommerce\orderapp\controller\OrderController.class
 com\ecommerce\orderapp\service\OrderDetailServiceImpl.class
+com\ecommerce\orderapp\exception\NotEnoughProductsInStockException.class
+com\ecommerce\orderapp\service\ShoppingCartServiceImpl.class
 com\ecommerce\orderapp\repository\ProductRepository.class
 com\ecommerce\orderapp\service\UserDetailsServiceImpl.class

@@ -62,8 +62,6 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-
-
     /*
     @Override
     public void updateOrder(OrderPayload orderPayload, Long id) {
@@ -79,10 +77,5 @@ public class OrderServiceImpl implements OrderService {
 
     public List<OrderDetail> getDetail(Long orderId) {
         return orderDetailRepository.findOrderDetailByOrder_Id(orderId);
-    }
-
-    @Override
-    public List<Order> saveAll(List<Order> orders) {
-        return orderRepository.saveAll(orders);
     }
 }

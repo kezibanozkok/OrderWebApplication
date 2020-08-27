@@ -15,7 +15,7 @@ public interface ShoppingCartService {
 
     Map<Product, Integer> getProductsInCart();
 
-    void checkout(Authentication authentication) throws NotEnoughProductsInStockException;
+    Long checkout(Authentication authentication) throws NotEnoughProductsInStockException;
 
     BigDecimal getTotal();
 }

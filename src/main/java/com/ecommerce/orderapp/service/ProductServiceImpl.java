@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void addProduct(ProductPayload productPayload) {
-        Product product = new Product(null, productPayload.getName(), productPayload.getPrice(), productPayload.getStock());
+        Product product = new Product(null, productPayload.getName(), productPayload.getPrice(), productPayload.getStock(), productPayload.getImg());
         productRepository.save(product);
     }
 
@@ -53,6 +53,7 @@ public class ProductServiceImpl implements ProductService {
         product.setName(productPayload.getName());
         product.setPrice(productPayload.getPrice());
         product.setStock(productPayload.getStock());
+        product.setImg(productPayload.getImg());
         productRepository.save(product);
     }
 

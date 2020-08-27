@@ -25,6 +25,7 @@ public class Product {
     private String name;
     private BigDecimal price;
     private int stock;
+    private String img;
 
     public Product(String name, BigDecimal price, int stock) {
         this.name = name;

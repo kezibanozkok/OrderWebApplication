@@ -87,7 +87,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * @throws NotEnoughProductsInStockException
      */
     @Override
-    public void checkout(Authentication authentication) throws NotEnoughProductsInStockException {
+    public Long checkout(Authentication authentication) throws NotEnoughProductsInStockException {
         Product product;
         Date date = new Date();
         String username = authentication.getName();
@@ -107,20 +107,20 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             entry.getKey().setStock(product.getStock() - entry.getValue());
 
             orderDetail = new OrderDetail(null, entry.getValue(), product.getPrice(), product, order);
-
             orderDetails.add(orderDetail);
         }
-
 
         if (optionalUser.isPresent()) {
             //Product product = productService.getOne((productPayload.getProduct()));
 
             orderRepository.save(order);
+            //System.out.println("*****order id: "+ order.getId());
             orderDetailRepository.saveAll(orderDetails);
             productRepository.saveAll(products.keySet());
             productRepository.flush();
             products.clear();
         }
+        return order.getId();
     }
 
     @Override

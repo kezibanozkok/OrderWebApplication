@@ -42,7 +42,6 @@ public class CustomerController {
     @PostMapping("/add")
     public String addCustomer(@ModelAttribute CustomerPayload customerPayload, @ModelAttribute UserPayload userPayload) {
         customerService.add(customerPayload, userPayload);
-        //userService.addUser(userPayload);
         return "redirect:/customers";
     }
 

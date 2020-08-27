@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Home</title>
+    <title>Login</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -20,23 +20,35 @@
 </head>
 <body>
 <div class="container">
-    <form th:action="@{/login}" method="post" style="max-width: 400px; margin: 0 auto">
-        <h1>Please login</h1>
+    <form th:action="@{/login}" method="post" style="margin-top: 100px; margin-right: 400px; margin-left: 400px">
+        <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+             width="300" height="200" alt="Web Site Logo"
+             style="margin-top: -25px; margin-left: 10px; margin-right: 200px"/>
+        <!--h1 style="margin-left: 80px">Please login</h1-->
         <div th:if="${param.error}" class="alert alert-danger">Invalid username or password</div>
         <div th:if="${param.logout}" class="alert alert-success">You have been logged out</div>
-        <label for="username">Username</label>:
-        <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>
-        <label for="password">Password</label>:
-        <input type="password" id="password" name="password"/> <br/>
-        <input type="submit" value="Login"/>
+        <div class="form-group">
+            <label for="username"></label>
+            <input type="text" class="form-control form-control-lg" id="username" name="username" autofocus="autofocus"
+                   placeholder="Username*"/> <br/>
+        </div>
+        <div class="form-group">
+            <label for="password"></label>
+            <input type="password" class="form-control form-control-lg" id="password" name="password"
+                   placeholder="Password*"/> <br/>
+        </div>
+        <button type="submit"
+                style="width: 340px; margin-right: 400px; margin-left: 0; color: white; color-rendering: auto; background-color: gray"
+                class="btn btn-default">Login
+        </button>
 
-        <ul class="nav nav-tabs">
-            <li role="presentation"><a href="/registration">Sign up</a></li>
-        </ul>
+        <h1></h1>
+        <div>
+            <ul class="nav nav-tabs">
+                <li role="presentation"><a href="/registration">Don't have an account? Sign up</a></li>
+            </ul>
+        </div>
     </form>
-
-    <!--p><a href="/home" th:href="@{/home}">Back to home page</a></p-->
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"

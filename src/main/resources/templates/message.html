@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Update customer</title>
+    <title>Message</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -20,6 +20,24 @@
 </head>
 <body>
 <div class="container">
+    <!--
+    <ul class="nav navbar-right">
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-default" type="submit" value="Logout">Logout</button>
+        </form>
+    </ul>
+    <ul class="nav navbar-right" sec:authorize="isAuthenticated()">
+        <li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li>
+    </ul>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/">Home</a></li>
+        <li role="presentation" class="active"><a href="/products">Products</a></li>
+        <li role="presentation"><a href="/customers">Customers</a></li>
+        <li role="presentation"><a href="/orders">Orders</a></li>
+        <li role="presentation"><a href="/reports">Reports</a></li>
+        <li role="presentation"><a href="/user/add">Define a User</a></li>
+    </ul> -->
+
     <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
          width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
@@ -72,44 +90,16 @@
         <a class="btn btn-default" href="/products" role="button"
            style="margin-top: -56px; margin-left: 400px">Products</a>
     </div>
+
     <h1></h1>
 
-    <div>
-        <form class="form-horizontal" method="post">
-            <div class="form-group">
-                <label for="firstName" class="col-sm-2 control-label">First Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="firstName" name="firstName"
-                           placeholder="Enter firstName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lastName" class="col-sm-2 control-label">Last Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter lastName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="address" class="col-sm-2 control-label">Address</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Enter address">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-            </div>
-        </form>
-    </div>
+    <!--div sec:authorize="isAuthenticated()">
+        <h6 th:text="'Siparisiniz olusturulmustur. Siparis numaranız, ' + ${orderId}" style="max-width: 600px; margin: 0 auto"></h6>
+    </div-->
 
-    <!--nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item "><a href="/products">Products</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Add Product</li>
-        </ol>
-    </nav-->
+    <div class="alert alert-success" role="alert">
+        <h5 th:text="'Siparisiniz olusturulmustur. Siparis numaranız, ' + ${orderId}"></h5>
+    </div>
 
 </div>
 

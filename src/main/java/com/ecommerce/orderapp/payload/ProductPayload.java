@@ -15,4 +15,5 @@ public class ProductPayload {
     private BigDecimal price;
     private int stock;
     private Long product;
+    private String img;
 }
