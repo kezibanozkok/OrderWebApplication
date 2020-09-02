@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/products")
+@RequestMapping(value = {"products"})
 public class ProductController {
 
     private final ProductService productService;
@@ -48,5 +48,10 @@ public class ProductController {
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteItemById(id);
         return "redirect:/products";
+    }
+
+    @GetMapping("/403")
+    public String error() {
+        return "403";
     }
 }

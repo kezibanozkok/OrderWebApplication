@@ -18,6 +18,4 @@ public interface CustomerService {
     void register(CustomerPayload customerPayload, UserPayload userPayload);
 
     void update(CustomerPayload customerPayload, Long id);
-
-    void deleteById(Long id);
 }

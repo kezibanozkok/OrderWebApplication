@@ -32,9 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests(authorize -> authorize
-                        .antMatchers("/", "/home", "/customers", "/orders").hasAnyRole(new String[]{"ADMIN", "USER"})
-                        .antMatchers("/customers/**", "/reports/**", "/user/**", "/orders/update").hasRole("ADMIN")
-                        .antMatchers("/products", "/login").permitAll()
+                        .antMatchers("/", "/home", "/products", "/customers", "/orders").hasAnyRole(new String[]{"ADMIN", "USER"})
+                        .antMatchers("/products/**", "/customers/**", "/reports/**", "/user/**", "/orders/update").hasRole("ADMIN")
+                        .antMatchers("/login").permitAll()
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login").permitAll()
@@ -42,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 )
                 .logout()
                 .logoutUrl("/logout")
-                .permitAll();
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
     }
 
     @Override

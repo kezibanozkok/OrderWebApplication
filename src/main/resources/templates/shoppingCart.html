@@ -24,27 +24,9 @@
 <body>
 
 <div class="container">
-    <!--
-    <ul class="nav navbar-right">
-        <form th:action="@{/logout}" method="post">
-            <button class="btn btn-default" type="submit" value="Logout">Logout</button>
-        </form>
-    </ul>
-    <ul class="nav navbar-right" sec:authorize="isAuthenticated()">
-        <li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li>
-    </ul>
-    <ul class="nav nav-tabs">
-        <li role="presentation"><a href="/">Home</a></li>
-        <li role="presentation"><a href="/products">Products</a></li>
-        <li role="presentation"><a href="/customers">Customers</a></li>
-        <li role="presentation"><a href="/orders">Orders</a></li>
-        <li role="presentation"><a href="/reports">Reports</a></li>
-        <li role="presentation"><a href="/user/add">Define a User</a></li>
-    </ul>
-    -->
-
-    <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
-         width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/>
+    <a href="/home"><img
+            src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+            width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-default" type="submit" value="Logout">
@@ -64,7 +46,7 @@
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()"
         style="max-width: 400px; margin-top: 30px; margin-right: 15px">
         <!--li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li-->
-        <form th:action="@{/shoppingCart}" method="get">
+        <form th:action="@{/shoppingCart}" method="get" sec:authorize="isAuthenticated()">
             <button class="btn btn-default" type="submit" value="Shopping Cart">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor"
                      xmlns="http://www.w3.org/2000/svg">
@@ -82,19 +64,17 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="/home">Home</a></li>
-            <!--li><a href="/products">Products</a></li-->
+            <!--li><a href="/home">Home</a></li-->
+            <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
             <li><a href="/reports">Reports</a></li>
-            <li><a href="/user/add">Define user</a></li>
         </ul>
     </div>
 
-    <div>
-        <a class="btn btn-default" href="/products" role="button"
-           style="margin-top: -56px; margin-left: 400px">Products</a>
-    </div>
+    <!--div>
+        <a class="btn btn-default" type="submit" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
+    </div-->
     <h1></h1>
 
     <div class="alert alert-info" th:if="${outOfStockMessage}" th:utext="${outOfStockMessage}"></div>

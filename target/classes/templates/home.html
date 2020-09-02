@@ -24,57 +24,67 @@
 <body>
 
 <div class="container">
-    <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033" width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/>
+    <a href="/home"><img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+                         width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-default" type="submit" value="Logout">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-right" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
                     <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-                    <path fill-rule="evenodd" d="M2 13.5A1.5 1.5 0 0 1 .5 12V4A1.5 1.5 0 0 1 2 2.5h7A1.5 1.5 0 0 1 10.5 4v1.5a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1.5a.5.5 0 0 1 1 0V12A1.5 1.5 0 0 1 9 13.5H2z"/>
-                </svg>Logout</button>
+                    <path fill-rule="evenodd"
+                          d="M2 13.5A1.5 1.5 0 0 1 .5 12V4A1.5 1.5 0 0 1 2 2.5h7A1.5 1.5 0 0 1 10.5 4v1.5a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1.5a.5.5 0 0 1 1 0V12A1.5 1.5 0 0 1 9 13.5H2z"/>
+                </svg>
+                Logout
+            </button>
         </form>
     </ul>
 
-    <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px; margin-right: 15px">
+    <ul class="nav navbar-right" sec:authorize="isAuthenticated()"
+        style="max-width: 400px; margin-top: 30px; margin-right: 15px">
         <!--li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li-->
         <form th:action="@{/shoppingCart}" method="get">
             <button class="btn btn-default" type="submit" value="Shopping Cart">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                </svg></button>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart3" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                </svg>
+            </button>
         </form>
     </ul>
 
     <div class="dropdown" style="max-width: 400px; margin-top: -125px; margin-left: 300px">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
             Menu
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="/home">Home</a></li>
+            <!--li><a href="/home">Home</a></li-->
             <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
             <li><a href="/reports">Reports</a></li>
-            <li><a href="/user/add">Define user</a></li>
         </ul>
     </div>
 
     <!--div>
-        <a class="btn btn-default" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
+        <a class="btn btn-default" type="submit" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
     </div-->
 
-    <div class="btn btn-default" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</div>
+    <!--div>
+        <form th:action="@{/products}" method="get">
+            <button class="btn btn-default" type="submit" value="Products" style="margin-top: -56px; margin-left: 400px">Products</button>
+        </form>
+    </div-->
+    <h1></h1>
 
-    <div sec:authorize="isAnonymous()">
-        <h1>Welcome!</h1>
-    </div>
-
-    <div sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 100px">
+    <!--div sec:authorize="isAuthenticated()" style="margin-top: 40px">
         <h1 th:text="'Welcome, ' + ${user} + '!'"></h1>
-    </div>
-
+    </div-->
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -21,6 +21,7 @@ F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\repository\OrderRepo
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\controller\HomeController.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\controller\ShoppingCartController.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\service\RoleService.java
+F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\report\OrderDetailReport.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\payload\ProductPayload.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\payload\RolePayload.java
 F:\OrderWebApplication\src\main\java\com\ecommerce\orderapp\service\CustomerServiceImpl.java

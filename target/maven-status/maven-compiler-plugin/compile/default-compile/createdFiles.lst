@@ -15,6 +15,7 @@ com\ecommerce\orderapp\service\CustomerService.class
 com\ecommerce\orderapp\service\OrderDetailService.class
 com\ecommerce\orderapp\repository\RoleRepository.class
 com\ecommerce\orderapp\service\CustomerServiceImpl.class
+com\ecommerce\orderapp\report\OrderDetailReport.class
 com\ecommerce\orderapp\domain\Product.class
 com\ecommerce\orderapp\domain\Customer.class
 com\ecommerce\orderapp\config\SecurityConfig.class

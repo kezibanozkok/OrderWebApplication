@@ -39,7 +39,6 @@ public class UserDetailsServiceImpl implements UserService, UserDetailsService {
             List<String> roleList = new ArrayList<>();
             user.getRoles().stream().forEach(role -> roleList.add(role.getName()));
 
-
             return org.springframework.security.core.userdetails.User.builder()
                     .username(user.getUsername())
                     .password(bCryptPasswordEncoder.encode(user.getPassword()))

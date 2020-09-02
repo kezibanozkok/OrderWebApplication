@@ -22,7 +22,8 @@ public class CustomerServiceImpl implements CustomerService {
     private final UserService userService;
 
     @Autowired
-    public CustomerServiceImpl(CustomerRepository customerRepository, RoleService roleService, UserRepository userRepository, UserService userService) {
+    public CustomerServiceImpl(CustomerRepository customerRepository, RoleService roleService, UserRepository userRepository,
+                               UserService userService) {
         this.customerRepository = customerRepository;
         this.roleService = roleService;
         this.userRepository = userRepository;
@@ -51,7 +52,8 @@ public class CustomerServiceImpl implements CustomerService {
             Role role = optionalRole.get();
             User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role);
             userRepository.save(user);
-            Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress(), user);
+            Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(),
+                    customerPayload.getAddress(), user);
             customerRepository.save(customer);
         }
     }
@@ -64,7 +66,8 @@ public class CustomerServiceImpl implements CustomerService {
         role.setName("USER");
         User user = new User(null, userPayload.getUsername(), userPayload.getPassword(), role);
         userRepository.save(user);
-        Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(), customerPayload.getAddress(), user);
+        Customer customer = new Customer(null, customerPayload.getFirstName(), customerPayload.getLastName(),
+                customerPayload.getAddress(), user);
         customerRepository.save(customer);
     }
 
@@ -75,10 +78,5 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setLastName(customerPayload.getLastName());
         customer.setAddress(customerPayload.getAddress());
         customerRepository.save(customer);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        customerRepository.deleteById(id);
     }
 }

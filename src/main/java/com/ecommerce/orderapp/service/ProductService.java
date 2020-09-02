@@ -13,8 +13,6 @@ public interface ProductService {
 
     Product save(Product product);
 
-    List<Product> saveAll(List<Product> products);
-
     void addProduct(ProductPayload productPayload);
 
     void update(ProductPayload productPayload, Long id);

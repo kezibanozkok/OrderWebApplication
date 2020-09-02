@@ -20,25 +20,9 @@
 </head>
 <body>
 <div class="container">
-    <!--ul class="nav navbar-right">
-        <form th:action="@{/logout}" method="post">
-            <button class="btn btn-default" type="submit" value="Logout">Logout</button>
-        </form>
-    </ul-->
-    <!--ul class="nav navbar-right" sec:authorize="isAuthenticated()">
-        <li class="active"><a th:href="@{/shoppingCart}">Shopping Cart</a></li>
-    </ul-->
-    <!--ul class="nav nav-tabs">
-        <li role="presentation"><a href="/">Home</a></li>
-        <li role="presentation" class="active"><a href="/products">Products</a></li>
-        <li role="presentation"><a href="/customers">Customers</a></li>
-        <li role="presentation"><a href="/orders">Orders</a></li>
-        <li role="presentation"><a href="/reports">Reports</a></li>
-        <li role="presentation"><a href="/user/add">Define a User</a></li>
-    </ul-->
-
-    <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
-         width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/>
+    <a href="/home"><img
+            src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+            width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-default" type="submit" value="Logout">
@@ -76,71 +60,23 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="/home">Home</a></li>
-            <!--li><a href="/products">Products</a></li-->
+            <!--li><a href="/home">Home</a></li-->
+            <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
             <li><a href="/reports">Reports</a></li>
-            <li><a href="/user/add">Define user</a></li>
         </ul>
     </div>
 
-    <div>
-        <a class="btn btn-default" href="/products" role="button"
-           style="margin-top: -56px; margin-left: 400px">Products</a>
-    </div>
-    <h1></h1>
-
-    <!--div class="table-responsive">
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Image</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="prod: ${products}">
-                <td th:text="${prod.id}">Table cell</td>
-                <td th:text="${prod.name}">Table cell</td>
-                <td th:text="${prod.price}">Table cell</td>
-                <td th:text="${prod.stock}">Table cell</td>
-                <td><img src=""></td>
-                <td><a th:href="@{'/products/update/' + ${prod.id}}" target="_blank" class="btn btn-success">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Update</a>
-                </td>
-                <td>
-                    <form th:action="@{/products/} + ${prod.id}" th:method="delete">
-                        <button class="btn btn-danger" type="submit">
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete
-                        </button>
-                    </form>
-                </td>
-                <td>
-                    <a th:href="@{'/shoppingCart/addProduct/' + ${prod.id}}" class="col-md-1"
-                       sec:authorize="isAuthenticated()" th:if="${prod.stock}>0">
-                        <button type="button" class="btn btn-primary" >Add to Cart</button>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <div class="row">
-            <div class="col-md-12">
-                <a href="/products/add" class="btn btn-default">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
-            </div>
-        </div>
+    <!--div>
+        <a class="btn btn-default" type="submit" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
     </div-->
+    <h1></h1>
 
     <div class="row">
         <div class="col-md-12">
-            <a href="/products/add" class="btn btn-default">
+            <a href="/products/add" class="btn btn-default"
+               style="margin-top: 60px; margin-right: 400px; margin-left: 0; color: white; color-rendering: auto; background-color: gray">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Product</a>
         </div>
     </div>
@@ -148,16 +84,19 @@
 
     <div class="row">
         <div class="col-lg-4" th:each="prod: ${products}">
-            <div class="thumbnail">
+            <div class="thumbnail" style="height: 65rem; width: 35rem">
                 <img th:src="${prod.img}" alt="">
                 <div class="caption">
-                    <h3 th:text="${prod.name}" style="font-family: 'Calibri',serif "></h3>
-                    <h3 th:text="'₺' + ${prod.price}"></h3>
-                    <h3 th:text="'Stock: ' + ${prod.stock}"></h3>
+                    <h3 th:text="${prod.name}" style="font-family: 'Calibri',serif"></h3>
+                    <h3 th:text="'₺' + ${prod.price}" style="color: darkblue"></h3>
+                    <h1></h1>
+                    <h5 th:text="'Stock: ' + ${prod.stock}"></h5>
+                    <h1></h1>
                     <p>
                         <a th:href="@{'/shoppingCart/addProduct/' + ${prod.id}}"
                            sec:authorize="isAuthenticated()" th:if="${prod.stock}>0"
-                           class="btn btn-primary" role="button"> Add to Cart
+                           class="btn btn-primary" role="button"> <span class="glyphicon glyphicon-shopping-cart"
+                                                                        aria-hidden="true"></span> Add to Cart
                             <!--   <button type="button" class="btn btn-primary">Add to Cart</button>  -->
                         </a>
                         <a th:href="@{'/products/update/' + ${prod.id}}" target="_blank" class="btn btn-success">
@@ -167,7 +106,6 @@
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete
                         </button>
                     </form>
-                    </p>
                 </div>
             </div>
         </div>

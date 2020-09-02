@@ -55,10 +55,4 @@ public class CustomerController {
         customerService.update(customerPayload, id);
         return "redirect:/customers";
     }
-
-    @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE, RequestMethod.POST})
-    public String deleteCustomer(@PathVariable Long id) {
-        customerService.deleteById(id);
-        return "redirect:/customers";
-    }
 }

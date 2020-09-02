@@ -24,8 +24,9 @@
 <body>
 
 <div class="container">
-    <img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
-         width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/>
+    <a href="/home"><img
+            src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+            width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-default" type="submit" value="Logout">
@@ -63,30 +64,28 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="/home">Home</a></li>
+            <!--li><a href="/home">Home</a></li-->
             <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
             <li><a href="/reports">Reports</a></li>
-            <li><a href="/user/add">Define user</a></li>
         </ul>
     </div>
 
     <!--div>
-        <a class="btn btn-default" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
+        <a class="btn btn-default" type="submit" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products</a>
     </div-->
 
-    <div class="btn btn-default" href="/products" role="button" style="margin-top: -56px; margin-left: 400px">Products
-    </div>
+    <!--div>
+        <form th:action="@{/products}" method="get">
+            <button class="btn btn-default" type="submit" value="Products" style="margin-top: -56px; margin-left: 400px">Products</button>
+        </form>
+    </div-->
+    <h1></h1>
 
-    <div sec:authorize="isAnonymous()">
-        <h1>Welcome!</h1>
-    </div>
-
-    <div sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 100px">
+    <!--div sec:authorize="isAuthenticated()" style="margin-top: 40px">
         <h1 th:text="'Welcome, ' + ${user} + '!'"></h1>
-    </div>
-
+    </div-->
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
