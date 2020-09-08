@@ -14,8 +14,8 @@ import java.util.Date;
 public class OrderDetailReport implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Long siparisNo;
-    private Date siparisTarihi;
-    private String urunAdi;
-    private int miktar;
+    private Long orderId;
+    private Date orderDate;
+    private String productName;
+    private int quantity;
 }

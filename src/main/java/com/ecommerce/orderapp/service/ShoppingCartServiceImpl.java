@@ -92,12 +92,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         Date date = new Date();
         String username = authentication.getName();
         Optional<User> optionalUser = userService.findByUsername(username);
-        Order order = null;
-        OrderDetail orderDetail = null;
+        Order order;
+        OrderDetail orderDetail;
         User user = optionalUser.get();
         List<OrderDetail> orderDetails = new ArrayList<>();
 
-        order = new Order(null, date, "Created", "siparis olusturuldu", user.getCustomer());
+        order = new Order(null, date, "Created", user.getCustomer());
 
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             // Refresh quantity for every product before checking
@@ -111,10 +111,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
 
         if (optionalUser.isPresent()) {
-            //Product product = productService.getOne((productPayload.getProduct()));
-
             orderRepository.save(order);
-            //System.out.println("*****order id: "+ order.getId());
             orderDetailRepository.saveAll(orderDetails);
             productRepository.saveAll(products.keySet());
             productRepository.flush();

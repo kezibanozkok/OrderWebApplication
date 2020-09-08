@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-
     @GetMapping(value = {"/", "/home"})
     public String homePage(Authentication authentication, Model model) {
         //model.addAttribute("user", authentication.getName());
         return "home";
+    }
+
+    @GetMapping("/403")
+    public String error() {
+        return "403";
     }
 }

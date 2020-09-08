@@ -20,8 +20,9 @@
 </head>
 <body>
 <div class="container">
-    <a href="/home"><img src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
-                         width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
+    <a href="/home"><img
+            src="https://images.creativemarket.com/0.1.0/ps/1231342/1160/772/m1/fpnw/wm0/kertas1-.jpg?1462206706&s=fdf02e966ebd2eec3af311d752712033"
+            width="300" height="200" alt="Web Site Logo" style="margin-top: -40px"/></a>
     <ul class="nav navbar-right" sec:authorize="isAuthenticated()" style="max-width: 400px; margin-top: 30px">
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-default" type="submit" value="Logout">
@@ -63,7 +64,7 @@
             <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
-            <li><a href="/reports">Reports</a></li>
+            <li><a href="/report/orders">Reports</a></li>
         </ul>
     </div>
 
@@ -74,7 +75,8 @@
 
     <div class="row">
         <div class="col-md-12">
-            <a href="/products/add" class="btn btn-default" style="margin-top: 60px; margin-right: 400px; margin-left: 0; color: white; color-rendering: auto; background-color: gray">
+            <a href="/products/add" class="btn btn-default"
+               style="margin-top: 60px; margin-right: 400px; margin-left: 0; color: white; color-rendering: auto; background-color: gray">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Product</a>
         </div>
     </div>
@@ -93,7 +95,8 @@
                     <p>
                         <a th:href="@{'/shoppingCart/addProduct/' + ${prod.id}}"
                            sec:authorize="isAuthenticated()" th:if="${prod.stock}>0"
-                           class="btn btn-primary" role="button"> <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart
+                           class="btn btn-primary" role="button"> <span class="glyphicon glyphicon-shopping-cart"
+                                                                        aria-hidden="true"></span> Add to Cart
                             <!--   <button type="button" class="btn btn-primary">Add to Cart</button>  -->
                         </a>
                         <a th:href="@{'/products/update/' + ${prod.id}}" target="_blank" class="btn btn-success">

@@ -32,8 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests(authorize -> authorize
-                        .antMatchers("/", "/home", "/products", "/customers", "/orders").hasAnyRole(new String[]{"ADMIN", "USER"})
-                        .antMatchers("/products/**", "/customers/**", "/reports/**", "/user/**", "/orders/update").hasRole("ADMIN")
+                        .antMatchers("/", "/home", "/products", "/customers", "/orders").hasAnyRole("ADMIN", "USER")
+                        .antMatchers("/products/**", "/customers/**", "/report/orders").hasRole("ADMIN")
                         .antMatchers("/login").permitAll()
                 )
                 .formLogin(formLogin -> formLogin
@@ -44,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutUrl("/logout")
                 .permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/403");
+                .exceptionHandling().accessDeniedPage("/403")
+        ;
     }
 
     @Override

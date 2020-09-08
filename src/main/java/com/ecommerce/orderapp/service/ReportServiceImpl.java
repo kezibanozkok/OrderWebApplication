@@ -14,7 +14,6 @@ public class ReportServiceImpl implements ReportService {
 
     private final OrderDetailRepository orderDetailRepository;
 
-
     @Override
     public List<OrderDetailReport> getReport(Date start, Date end) {
         return orderDetailRepository.findOrdersByDateBetween(start, end);

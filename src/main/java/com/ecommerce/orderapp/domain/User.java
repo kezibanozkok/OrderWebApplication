@@ -33,8 +33,6 @@ public class User {
     @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
     private Customer customer;
 
-    //private int isActive;
-
     public User(Long id, String username, String password, Role role) {
         this.id = id;
         this.username = username;

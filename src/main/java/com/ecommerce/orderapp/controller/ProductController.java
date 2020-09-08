@@ -49,9 +49,4 @@ public class ProductController {
         productService.deleteItemById(id);
         return "redirect:/products";
     }
-
-    @GetMapping("/403")
-    public String error() {
-        return "403";
-    }
 }

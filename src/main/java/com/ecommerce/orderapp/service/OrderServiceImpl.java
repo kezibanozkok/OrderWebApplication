@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
         if (optionalUser.isPresent()) {
             Product product = productService.getOne((productPayload.getProduct()));
             User user = optionalUser.get();
-            Order order = new Order(null, date, "Created", null, user.getCustomer());
+            Order order = new Order(null, date, "Created", user.getCustomer());
             orderRepository.save(order);
             OrderDetail orderDetail = new OrderDetail(null, quantity, product.getPrice(), product, order);
             orderDetailRepository.save(orderDetail);

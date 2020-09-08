@@ -20,6 +20,7 @@ public class OrderReportController {
 
     @GetMapping
     public List<OrderDetailReport> getReport() throws ParseException {
-        return reportService.getReport(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-01"), new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-04"));
+        return reportService.getReport(new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-01"),
+                new SimpleDateFormat("yyyy-MM-dd").parse("2020-08-04"));
     }
 }

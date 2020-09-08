@@ -22,7 +22,6 @@ public class Order {
     private Long id;
     private Date orderDate;
     private String status;
-    private String description;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

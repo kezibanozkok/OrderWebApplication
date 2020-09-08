@@ -64,7 +64,7 @@
             <li><a href="/products">Products</a></li>
             <li><a href="/customers">Customers</a></li>
             <li><a href="/orders">Orders</a></li>
-            <li><a href="/reports">Reports</a></li>
+            <li><a href="/report/orders">Reports</a></li>
         </ul>
     </div>
 
@@ -80,8 +80,6 @@
                 <th>ID</th>
                 <th>Order Date</th>
                 <th>Status</th>
-                <th>Description</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -89,7 +87,6 @@
                 <td th:text="${order.id}">Table cell</td>
                 <td th:text="${order.orderDate}">Table cell</td>
                 <td th:text="${order.status}">Table cell</td>
-                <td th:text="${order.description}">Table cell</td>
                 <td><a th:href="@{'/orders/detail/' + ${order.id}}" target="_blank" class="btn btn-info">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>Details </a>
                     <!--td><a th:href="@{'/orders/update/' + ${order.id}}" target="_blank" class="btn btn-success">
